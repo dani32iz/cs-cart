@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>qiwipost</id>
+    <version>1.0.0</version>
+    <priority>4407</priority>
+    <position>0</position>
+    <auto_install>ULTIMATE,MULTIVENDOR</auto_install>
+    <status>active</status>
+    <default_language>ru</default_language>
+
+    <functions>
+        <item for="install">fn_qiwipost_install</item>
+        <item for="uninstall">fn_qiwipost_uninstall</item>
+    </functions>
+</addon>

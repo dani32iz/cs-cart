@@ -1,0 +1,76 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cs-cart-ru\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language-Team: Russian\n"
+"Language: ru_RU\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: cs-cart-ru\n"
+"X-Crowdin-File: /addons/qiwipost.po\n"
+"Last-Translator: cscart <zoya@qiwipost.ru>\n"
+"PO-Revision-Date: 2015-02-06 08:00-0500\n"
+
+msgctxt "Addons::name::qiwipost"
+msgid "Russian localization — shipping service QIWI Post ( qiwipost.ru )"
+msgstr "Служба доставки — QIWI Post"
+
+msgctxt "Addons::description::qiwipost"
+msgid "QIWI Post"
+msgstr "Терминалы QIWI Post"
+
+msgctxt "Addons::description::qiwipost"
+msgid "QIWI Post"
+msgstr "Терминалы QIWI Post"
+
+msgctxt "Languages::carrier_qiwipost"
+msgid "QIWI Post"
+msgstr "QIWI Post"
+
+msgctxt "Languages::shippings_qiwipost.calc_key"
+msgid "Calc key:"
+msgstr "Ключ для расчета стоимости (можно получить на calc.qiwipost.ru):"
+
+msgctxt "Languages::shippings_qiwipost.dims"
+msgid ":"
+msgstr "На сколько нужно умножить вашу единицу измерения габаритов, чтобы получить миллиметры:"
+
+msgctxt "Languages::shippings_qiwipost.curl"
+msgid "CURL:"
+msgstr "В настройках PHP подключена CURL:"
+
+msgctxt "Languages::shippings_qiwipost.nds"
+msgid "NDS:"
+msgstr "Учитывать НДС:"
+
+msgctxt "Languages::shippings_qiwipost.tens"
+msgid "Round:"
+msgstr "Округлять стоимость до десятков в бОльшую сторону:"
+
+msgctxt "Languages::shippings_qiwipost.pack"
+msgid "Pack:"
+msgstr "Рассчитывать доставку с учетом размера товаров:"
+
+msgctxt "Languages::shippings_qiwipost.salerequest"
+msgid "Please contact us at <a href="mailto:sales@qiwipost.ru">sales@qiwipost.ru</a>:"
+msgstr "Для подключения QIWI Post, пожалуйста, обратитесь за помощью в отдел продаж QIWI Post по электронному адресу <a href="mailto:sales@qiwipost.ru">sales@qiwipost.ru</a>"
+
+msgctxt "Languages::qiwipost_weighterror"
+msgid "Weight error"
+msgstr "Вес выбранных товаров превышает максимально допустимое занчение"
+
+msgctxt "Languages::qiwipost_title1"
+msgid ""
+msgstr "Ваш заказ будет доставлен в терминал:"
+
+msgctxt "Languages::qiwipost_title2"
+msgid ""
+msgstr "терминал не выбран"
+
+msgctxt "Languages::qiwipost_title3"
+msgid ""
+msgstr "Выбрать терминал QIWI Post на карте"
+
+msgctxt "Languages::qiwipost_title4"
+msgid ""
+msgstr "Выбран терминал:"
