@@ -86,19 +86,28 @@ class Qiwipost implements IService
 		}
 
 		$terminals = fn_qiwipost_Terminals();
+
 		$terminals_num = 0;
 		foreach ( $terminals as $k=>$row )
-		{			if ( (string)$row[ 'array' ]->town == $qiwipost_city || (string)$row[ 'array' ]->citygroup == $qiwipost_city )
-			{				$terminals_num++;
-				break;			}		}
+		{
+			if ( (string)$row[ 'array' ]->town == $qiwipost_city || (string)$row[ 'array' ]->citygroup == $qiwipost_city )
+			{
+				$terminals_num++;
+				break;
+			}
+		}
 
 		if ( empty( $qiwipost_city ) || $terminals_num == 0 )
-		{			return $return;		}
+		{
+			return $return;
+		}
 
     	$dims = array();
     	$w = 0;
     	if ( !isset( $this->_shipping_info['service_params']['dims'] ) )
-		{			$this->_shipping_info['service_params']['dims'] = 1;		}
+		{
+			$this->_shipping_info['service_params']['dims'] = 1;
+		}
 		if ( !isset( $this->_shipping_info['service_params']['pack'] ) )
 		{
 			$this->_shipping_info['service_params']['pack'] = 0;
@@ -113,19 +122,25 @@ class Qiwipost implements IService
 		}
 
     	foreach ( $this->_shipping_info['package_info']['packages'] as $row )
-    	{    		if ( isset( $row['shipping_params'] ) )
-    		{    			for ( $i=1; $i<=(int)$row['amount']; $i++ )
+    	{
+    		if ( isset( $row['shipping_params'] ) )
+    		{
+    			for ( $i=1; $i<=(int)$row['amount']; $i++ )
     			{
     				$dims[] = array(
     					0 => (int)$row['shipping_params']['box_length']*(float)$this->_shipping_info['service_params']['dims'],
     					1 => (int)$row['shipping_params']['box_width']*(float)$this->_shipping_info['service_params']['dims'],
     					2 => (int)$row['shipping_params']['box_height']*(float)$this->_shipping_info['service_params']['dims']
     				);
-    			}    		}
-    		$w += $row['weight']*(int)$row['amount'];    	}
+    			}
+    		}
+    		$w += $row['weight']*(int)$row['amount'];
+    	}
 
     	if ( $w > $this->_shipping_info['service_params']['calc_key'] )
-    	{    		$return['error'] = __('qiwipost_weighterror');    	}
+    	{
+    		$return['error'] = __('qiwipost_weighterror');
+    	}
     	$post = array();
 
 		if ( $this->_shipping_info['service_params']['pack'] == 1 )
@@ -135,14 +150,20 @@ class Qiwipost implements IService
 	    	);
 	  	}
 
-    	$res = json_decode( fn_qiwipost_Query( 'http://wt.qiwipost.ru/calc?type=json&key='.$this->_shipping_info['service_params']['calc_key'].'&cscartcity='.$this->_shipping_info['package_info']['location']['state'].'&nds='.( $this->_shipping_info['service_params']['nds'] == 1 ? '1' : '0' ).'&tens='.( $this->_shipping_info['service_params']['tens'] == 1 ? '1' : '0' ), $post, 'normal' ) );
+    	$res = json_decode(fn_qiwipost_Query('http://wt.qiwipost.ru/calc?type=json&key='
+            .$this->_shipping_info['service_params']['calc_key']
+            .'&cscartcity='.$this->_shipping_info['package_info']['location']['state']
+            .'&nds='.( $this->_shipping_info['service_params']['nds'] == 1 ? '1' : '0' )
+            .'&tens='.( $this->_shipping_info['service_params']['tens'] == 1 ? '1' : '0' ), $post, 'normal' ));
 
     	if ( $res && ( !isset( $res->error ) || empty( $res->error ) ) )
-    	{    		$return = array(
+    	{
+    		$return = array(
 	            'cost' => $res->price,
 	            'error' => false,
 	            'delivery_time' => $res->deliverytime
-	        );    	}
+	        );
+    	}
     	else
     	{
 	        $return['error'] = isset( $res->error ) ? $res->error : 'Unknown error';

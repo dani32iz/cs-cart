@@ -12,4 +12,20 @@
         <item for="install">fn_qiwipost_install</item>
         <item for="uninstall">fn_qiwipost_uninstall</item>
     </functions>
+
+    <queries>
+        <item>DROP TABLE IF EXISTS ?:qiwipost_cash</item>
+        <item>
+            CREATE TABLE IF NOT EXISTS `?:qiwipost_cash` (
+              `id` int(11) NOT NULL AUTO_INCREMENT,
+              `q` text CHARACTER SET utf8,
+              `res` longtext CHARACTER SET utf8,
+              `lastupd` int(11) DEFAULT NULL,
+              `type` varchar(8) CHARACTER SET utf8 NOT NULL,
+              PRIMARY KEY (`id`)
+            ) Engine=MyISAM DEFAULT CHARSET UTF8;
+        </item>
+        <item for="uninstall">DROP TABLE IF EXISTS ?:qiwipost_cash</item>
+    </queries>
 </addon>
+
